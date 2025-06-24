@@ -2,12 +2,15 @@ import matplotlib as mpl
 import matplotlib.pyplot as plt
 import numpy as np
 
+
+
 def drawOpticalAxis(objectPosition, imagePosition):
-    optical_x = np.array([0 - objectPosition, imagePosition])
+    optical_x = np.array([objectPosition, imagePosition])
     optical_y = np.array([0,0])
 
     plt.plot(optical_x, optical_y, 'k--')
     return None
+
 
 def drawLens(objectSize, imageSize, lens_x):
     bound = max([abs(objectSize), abs(imageSize)])
@@ -22,16 +25,12 @@ def drawLens(objectSize, imageSize, lens_x):
     return None
 
 
-def drawObjects(objectPosition, imagePosition, objectSize, imageSize):
-    object_x = np.array([0 - objectPosition, 0 - objectPosition])
+def drawObject(objectPosition, objectSize,):
+    object_x = np.array([objectPosition, objectPosition])
     object_y = np.array([0, objectSize])
     plt.plot(object_x, object_y, 'k')
-    plt.arrow(-objectPosition,0, 0, objectSize, head_width = 0.1, head_length = 0.1, fc = 'black', ec = 'black')
+    plt.arrow(objectPosition,0, 0, objectSize, head_width = 0.1, head_length = 0.1, fc = 'black', ec = 'black')
 
-    image_x = np.array([imagePosition, imagePosition])
-    image_y = np.array([0, imageSize])
-    plt.plot(image_x, image_y, 'g')
-    plt.arrow(imagePosition, 0, 0, imageSize, head_width = 0.1, head_length = 0.1, fc = 'green', ec = 'green')
     return None
 
 def drawRays(objectPosition, imagePosition, objectSize, imageSize):

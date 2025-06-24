@@ -13,9 +13,16 @@ lenses.append(lens_1)
 lenses.append(lens_2)
 
 object_x = float(input("Enter object x position: ")) #cm
+
+#keep a concrete object start since I iterate later
+OBJECT_X = object_x
 S_o = float(input("Enter desired object size: ")) #cm
 
+
 images = []
+
+#Draw principal object before image update
+vis.drawObject(object_x, S_o)
 
 
 #All calculations for images
@@ -39,7 +46,15 @@ for lens in lenses:
     S_o = S_i
 
 
+# Draw All images
+for image in images: 
+    vis.drawObject(image["image_x"], image["Size"])
+
+# Draw Optical Axis
+vis.drawOpticalAxis(OBJECT_X, image_x)
+
 plt.show()
+
 
 print(lenses)
 print(images)
