@@ -1,6 +1,6 @@
 import cv2 as cv
 
-img = cv.imread("Test_keyboard_image.jpg")
+img = cv.imread("Image_Processing\week1_edges\Media\Test_keyboard_image.jpg")
 if img is None:
     print("Image not found")
 
@@ -17,7 +17,7 @@ else:
     cv.waitKey(0)
     cv.destroyAllWindows()
 
-    cv.imwrite("grayKeyboard.jpg", grayImage)
+    cv.imwrite("Image_Processing\week1_edges\Media\grayKeyboard.jpg", grayImage)
 
 #creates edges with grayscale image
     edges = cv.Canny(grayImage,180,220)
@@ -25,7 +25,7 @@ else:
     cv.waitKey(0)
     cv.destroyAllWindows()
 
-    cv.imwrite("keyboardEdges.jpg", edges)
+    cv.imwrite("Image_Processing\week1_edges\Media\keyboardEdges.jpg", edges)
 
 #Gaussian Blur
     blur = cv.GaussianBlur(img,(5,5),0)
@@ -33,6 +33,6 @@ else:
     cv.waitKey(0)
     cv.destroyAllWindows()
 
-    cv.imwrite("blurredKeyboard.jpg",blur)
+    cv.imwrite("Image_Processing\week1_edges\Media\blurredKeyboard.jpg",blur)
 
 
